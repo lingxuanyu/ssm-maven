@@ -1,6 +1,9 @@
 
 
-## 错误知道
+## 使用配置说明
+
+### 错误出现前，请mvn -clean 刷新maven，可能网络差，存在部分装包原因。
+
 
 ### 文件位置（第一步）
 ```bash
@@ -70,6 +73,45 @@ jdbc.maxPoolSize=20；
 ```
 
 - 结果为：{"id":1,"username":"lilngxaunyu","password":"lingxuanyu"}；
+
+### SQL 数据库错误
+```bash
+	出现数据库SQL错误，bindSQL sattement，can't found mapperxml文件，
+查看 target的classes文件下的mapperxml（SQL的mapper文件是否存在，不存在在pom.xml中加入
+下列插件：
+<build>
+<plugins>
+    <plugin>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>2.6</version>
+	<executions>
+	    <execution>
+        <id>copy-xmls</id>
+        <phase>process-resources</phase>
+        <goals>
+            <goal>copy-resources</goal>
+        </goals>
+        <configuration>
+        <outputDirectory>${basedir}/target/classes</outputDirectory>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        </configuration>
+	    </execution>
+	</executions>
+    </plugin>
+</plugins>
+</build>
+原因：exlipse采用自己的编译机制，不会忽略xml文件，然而IDEA只会针对
+src/main/下的java文件进行操作，从而忽略了xml文件，所以添加xml文件的
+插件，实现数据绑定的操作。
+```
+
 
 ### 错误处理办法
 ```bash
