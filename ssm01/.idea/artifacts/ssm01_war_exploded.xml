@@ -38,6 +38,8 @@
       </element>
       <element id="javaee-facet-resources" facet="ssm01/web/ssm01_tomcate8.0.5" />
       <element id="directory" name="folder" />
+      <element id="dir-copy" path="$PROJECT_DIR$/web/WEB-INF/jsp" />
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
     </root>
   </artifact>
 </component>

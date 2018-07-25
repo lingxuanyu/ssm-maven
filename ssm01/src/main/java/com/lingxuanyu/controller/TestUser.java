@@ -21,4 +21,6 @@ public class TestUser {
        UserController userController = (UserController)apx.getBean("userController");
         userController.getAllUser();
     }
+
+
 }

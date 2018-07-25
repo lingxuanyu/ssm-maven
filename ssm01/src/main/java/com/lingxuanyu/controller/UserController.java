@@ -7,18 +7,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.resource.spi.RetryableUnavailableException;
-
 @Controller("userController")
-@ResponseBody
 public class UserController {
 
     @Autowired
     public UserService userService;
 
     @RequestMapping("/index")
+    @ResponseBody
     public User getAllUser(){
         User user = userService.getUser();
-        return user;
+        return  user;
+    }
+
+    @RequestMapping("/seconed")
+    public String getSecond(){
+        System.out.println("seconed");
+        return  "seconed";
     }
 }

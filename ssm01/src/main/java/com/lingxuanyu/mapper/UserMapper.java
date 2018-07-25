@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
-    @Select("select * from ssm where id =1")
+
     public User getAllUser();
 
 

@@ -110,8 +110,28 @@ jdbc.maxPoolSize=20；
 原因：exlipse采用自己的编译机制，不会忽略xml文件，然而IDEA只会针对
 src/main/下的java文件进行操作，从而忽略了xml文件，所以添加xml文件的
 插件，实现数据绑定的操作。
-```
 
+```
+```bash
+上述配置可以简写为：
+   <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+```
+## Index.jsp 文件配置失败（无法编译）
+```bash
+点击 file -> Project Structure -> Artifacts : 查看右侧的output root ,
+点击 “+” 引入对应的静态资源文件
+
+```
 
 ### 错误处理办法
 ```bash
